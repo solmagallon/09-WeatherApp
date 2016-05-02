@@ -1,0 +1,77 @@
+
+#header {
+    position: left;
+    left: 50px; 
+    display: block;
+    width: 850px;
+    height: 200px;
+    background-color: lightgrey;
+    font-color: #ffffff;
+    text-align: center;
+}
+
+
+#cities {
+    position: left;
+    left: 30px;
+    border-style: solid;
+    border-width: medium;
+    display: block;
+    width: 400px;
+    height: 50px;
+    background-color: white;
+    font-color: #ffffff;
+    text-align: center;
+}
+
+#body {
+    position: relative;
+    left: 30px;
+    border-style: solid;
+    border-width: medium;
+    display: block;
+    width: 200px;
+    height: 500px;
+    background-color: white;
+    font-color: #ffffff;
+    text-align: center;
+
+}
+
+.p {
+    position: absoulute;
+    right: 30px;
+    display: block;
+    font-color: #ffffff;
+    text-align: center;
+
+
+}
+
+#footer {
+
+
+}
+
+
+
+}
+
+.container {
+    background-color: blue;
+    font-color: white;
+    width: 500px;
+    height: 50px;
+    font-color: #ffffff;
+    text-align: center;
+}
+
+.item {
+    
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    
+}
+
+.origin
