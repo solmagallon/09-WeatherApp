@@ -23,10 +23,9 @@
         vm.pastSearches = [];
 
         vm.select = function(c){
-            console.log(c)
             // add the search to the past search list
             vm.pastSearches.unshift(c)
-            vm.displayWeather(c._id);
+            displayWeather(c._id);
             console.log(c._id)
         }
 
@@ -61,15 +60,12 @@
             windSpeed: ""
         };
 
-        vm.displayWeather = function(cityId){
+        var displayWeather = function(cityId){
             weatherFactory.getWeather(cityId).then(
                 function(response){
                     var data = response.data.list[0];
-                    console.log(response.data.city.coord)
+                    console.log(data);  
                     vm.weather = {
-                        city: response.data.city.name,
-                        lat: response.data.city.coord.lat,
-                        lng: response.data.city.coord.lon,
                         temperature: data.main.temp,
                         pressure: data.main.pressure,
                         humidity: data.main.humidity,
