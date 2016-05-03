@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather App</title>
+
+    <link rel="stylesheet" href="app/styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+
+
+<body ng-controller="WeatherController as vm">
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/weather.controller.js"></script>
+    <script src="/app/weather.service.js"></script>
+    <!-- endinject -->
+
+
+<header>
+
+    <div id="header">
+      <div id="container">
+        <h1 class="display-1"></p>Origin Weather Application</h1>
+        <h4 class="lead text">Always know if you need an Umbrella!</h4>
+      </div>
+    </div>
+
+</header>
+
+<cities>
+
+ <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
+    </div>
+  </div>
+
+
+
+
+<div class="row background-color=lightblue">
+  <div class="col-md-1">San Diego</div>
+  <div class="col-md-1">New York</div>
+  <div class="col-md-1">Washington DC</div>
+  <div class="col-md-1">Tokyo</div>
+  <div class="col-md-1">.col-md-1</div>
+ 
+</div>
+
+
+
+</cities>
+
+  
+  <div border="1", style = "font-size = 10", "background-color=cornflourblue">
+    City Information
+  </div>
+
+
+
+
+
+
+
+
+    </div> 
+
+    </div>
+
+</body>
+
+<footer>
+
+
+
+
+
+
+
+</html>
