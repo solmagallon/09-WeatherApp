@@ -10,7 +10,7 @@
 		<body ng-controller="WeatherController as vm">
 	</head>
   
-  	<body style='margin-top:50px;margin-left:50px;margin-right:50px;'>
+  	<body>
 
 
 
@@ -45,14 +45,6 @@
 					
 
 		<div>	
-
-
-		
-
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
@@ -84,7 +76,7 @@
 
 		<div class="container-fluid">
 				<div class="row">
-			        <div class="col-md-14">				    		
+			        <div class="col-md-6">				    		
 			            <div id="custom-search-input">
 			                <div class="input-group col-md-12">
 			                    <input type="text" class="form-control input-sm" placeholder="City" />
@@ -102,15 +94,18 @@
 			</div>
 		</div>
 
+		
 
-    </div>
-        <div class="row">
-            <div class="col-lg-5 col-md-5 col-sm-5">
-                <div class="panel panel-info">
-                    <div class="panel-heading">City Information</div>
-                    <div class = "panel-body">
+	<div class="container">
+		<div class = "panel panel-info">
+		   	<div class = "panel-heading">
+		      <h3 class = "panel-title">
+		      City Information</h3>
+		   	</div>
+		   
+		   	<div class = "panel-body">
 	      		<div>
-				<h1 style="text-align:center;">
+				<h1 style=center>
 					Tokyo
 				</h1>
 				</div>
@@ -159,12 +154,12 @@
 	   		</div>
 		</div>
 
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-7">
-                <div class="panel panel-info">
-                    <div class="panel-heading">Search History</div>
+		<div class = "panel panel-info">
+		   <div class = "panel-heading">
+		      <h3 class = "panel-title">
+		      Search History
+		      </h3>
+		   </div>
 		   
 		   <div class = "panel-body">
 				<table class="table">
@@ -226,19 +221,9 @@
 					</tbody>
 				</table>
 			</div>
-		</div
-
-
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-</body>
+		</div>
+	</div>
+	</body>
 
 
 
