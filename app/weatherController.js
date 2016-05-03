@@ -55,16 +55,6 @@
             });
         }
 
-
-        vm.weather = {
-            temperature: "",
-            pressure: "",
-            humidity: "",
-            lowestTemp: "",
-            highestTemp: "",
-            windSpeed: ""
-        };
-
         vm.displayWeather = function(cityId){
             weatherFactory.getWeather(cityId).then(
                 function(response){
