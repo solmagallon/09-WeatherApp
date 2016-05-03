@@ -23,6 +23,10 @@
         vm.pastSearches = [];
 
         vm.select = function(c){
+            var accessed = new Date();
+            c.accessed = {}
+            c.accessed.time = accessed.toLocaleTimeString();
+            c.accessed.date = accessed.toLocaleDateString();
             console.log(c)
             // add the search to the past search list
             vm.pastSearches.unshift(c)
