@@ -6,6 +6,7 @@
     <title>Weather App</title>
 
     <link rel="stylesheet" href="app/styles/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 </head>
 
 
@@ -25,29 +26,39 @@
 
 
 <header>
+
     <div id="header">
-      <h1><font size=500px>Origin Weather Application</font></h1>
-      <h4>Always know if you need an Umbrella!</h4>
+      <div id="container">
+        <h1 class="display-1"></p>Origin Weather Application</h1>
+        <h4 class="lead text">Always know if you need an Umbrella!</h4>
+      </div>
     </div>
 
 </header>
 
 <cities>
-  <div class="container"
-  <div class="row">
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
-  <div class="col-md-1">.col-md-1</div>
+
+ <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" type="button">Go!</button>
+      </span>
+    </div>
+  </div>
 
 
 
 
-  <div class="container">
-  <div class="item">San Diego</div>
-  <div class="item">New York</div>
-  <div class="item">Washington D.C</div> 
+<div class="row background-color=lightblue">
+  <div class="col-md-1">San Diego</div>
+  <div class="col-md-1">New York</div>
+  <div class="col-md-1">Washington DC</div>
+  <div class="col-md-1">Tokyo</div>
+  <div class="col-md-1">.col-md-1</div>
+ 
+</div>
+
 
 
 </cities>
