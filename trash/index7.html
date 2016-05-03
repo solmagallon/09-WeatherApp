@@ -51,30 +51,32 @@
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
+<!-- default city buttons -->
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-12">
-<!-- default city button -->						
 						<div class="btn-group btn-group-sm">
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{San Diego}}
-       						</button>
-<!-- default city button -->						      						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{New York}}
-       						</button>
-<!-- default city button -->
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Washington D.C.}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{London}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Tokyo}}
-       						 </button>
+							<button class="btn btn-primary" 
+
+ 							ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
+            				{{city.name}}
+
+
+							id = "San diego" autofocus="true" type="button">
+								San Diego
+							</button>	
+							<button class="btn btn-primary" id = "New York" type="button">
+								New York
+							</button> 
+							<button class="btn btn-primary" id = "Washington D.C." type="button">
+								Washington D.C.
+							</button> 
+							<button class="btn btn-primary" id = "London" type="button">
+								London
+							</button>
+							<button class="btn btn-primary" id = "Tokyo" type="button">
+								Tokyo	
+							</button>
 						</div>
 					</div>
 				</div>
@@ -90,36 +92,21 @@
 			        <div class="col-md-14">				    		
 			            <div id="custom-search-input">
 			                <div class="input-group col-md-12">
-<!-- Input for query -->
-
-						<div class="row">
-						  <div class="col-xs-5">
-						    <input type="text" class="form-control" placeholder="city" ng-model="cityQuery">
-						  </div>
-						  <div class="col-xs-5">
-						    <input type="text" class="form-control" placeholder="country" ng-model="countryQuery">
-						  </div>
-                				<button class="btn btn-default" type="button" ng-click="vm.getMatches(cityQuery, countryQuery)">
-	                            	<i class="glyphicon glyphicon-search">
-	                            	</i>
-                            	</button>
-                    	</div>
-					​
+			                    <input type="text" class="form-control input-sm" placeholder="City" />
+			                    	<span class="input-group-btn">
 <!-- List of all the cities that match the query -->
-						<div class="row">
-					    	<div class="col-xs-5" ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
-					        	{{city.name}}
-					    	</div>
-					    	<div class="col-xs-5" ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
-					        	{{city.country}}
-					    	</div>
-					    	<br>
-	            		</div>
-	        		</div>
+			                        	<button class="btn btn-default btn-sm" type="button">
+			                            	<i class="glyphicon glyphicon-search">
+			                            	</i>
+			                        	</button>
+			                    	</span>
+			                    </div>
+			            	</div>
+			        	</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 
     </div>
@@ -130,8 +117,7 @@
                     <div class = "panel-body">
 	      		<div>
 				<h1 style="text-align:center;">
- <!-- Output icon -->
- 					<img src={{vm.weather.icon}}/>
+ <!-- Output -->
 					City: {{vm.weather.city}}<br>
 				</h1>
 				</div>
@@ -197,21 +183,11 @@
 		   <div class = "panel-body">
 				<table class="table">
 					<tbody>
-						<tr ng-repeat="city in vm.pastSearches" ng-click="vm.displayWeather(city._id)" ng-class="{active: ($index % 2 == 0)}">
-                           <td>
-                               {{city.name}} 
-                            </td>
-                            <td>
-							</td>
+						<tr>
 							<td>
-								{{city.accessed.date}}
-							</td>
-							<td>
-                               {{city.accessed.time}}
-                           </td>
-                       </tr>
-						<tr class="active">
-							<td>
+							<div ng-repeat="city in vm.pastSearches" ng-click="vm.displayWeather(city._id)">
+            {{city.name}}   
+    </div>
 							</td>
 							<td>
 							</td>
@@ -219,10 +195,51 @@
 							</td>
 							<td>
 							<td>
+							TEMP/TIME
 							</td>
 						</tr>
-			
+						<tr class="active">
+							<td>
+							CITY
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							<td>
+							TEMP/TIME
+							</td>
+						</tr>
+					<tbody>
+						<tr>
+							<td>
+							CITY
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							<td>
+							TEMP/TIME
+							</td>
+						</tr>
+						<tr class="active">
+							<td>
+							CITY
+							</td>
+							<td>
+							</td>
+							<td>
+							</td>
+							<td>
+							<td>
+							TEMP/TIME
+							</td>
+						</tr>					
 				
+					</tbody>
 				</table>
 			</div>
 		</div
@@ -235,9 +252,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 </body>
