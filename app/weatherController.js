@@ -5,10 +5,10 @@
         .module('app')
         .controller('weatherController', weatherController); 
 
-    weatherController.$inject = ['cityFactory', 'weatherFactory', '$scope', '$log', 'cityFilter']; // https://github.com/johnpapa/angular-styleguide/tree/master/a1#manual-annotating-for-dependency-injection
+    weatherController.$inject = ['cachedFactory', 'cityFactory', 'weatherFactory', '$scope', '$log', 'cityFilter']; // https://github.com/johnpapa/angular-styleguide/tree/master/a1#manual-annotating-for-dependency-injection
 
     /* @ngInject */
-    function weatherController(cityFactory, weatherFactory, $log, $scope, cityFilter) {
+    function weatherController(cachedFactory, cityFactory, weatherFactory, $log, $scope, cityFilter) {
         var vm = this; // https://github.com/johnpapa/angular-styleguide/tree/master/a1/#controllers
 
         // vm.cities = {name: "placeholder", country: "placeholder"};
@@ -27,11 +27,10 @@
             c.accessed = {}
             c.accessed.time = accessed.toLocaleTimeString();
             c.accessed.date = accessed.toLocaleDateString();
-            console.log(c)
+
             // add the search to the past search list
             vm.pastSearches.unshift(c)
             vm.displayWeather(c._id);
-            console.log(c._id)
         }
 
         vm.defaultCities = [
@@ -55,21 +54,26 @@
             });
         }
 
+        // get cached data for items in the past call list.
+        vm.getCached = function(string){
+            vm.weather = cachedFactory.getCache(string);
+        }
+
         vm.displayWeather = function(cityId){
             weatherFactory.getWeather(cityId).then(
                 function(response){
-                    var data = response.data.list[0];
-                    console.log(response.data.city.coord)
+                    var d = response.data.list[0];
+
                     vm.weather = {
                         city: response.data.city.name,
                         lat: response.data.city.coord.lat,
                         lng: response.data.city.coord.lon,
-                        temperature: data.main.temp,
-                        pressure: data.main.pressure,
-                        humidity: data.main.humidity,
-                        lowestTemp: data.main.temp_min,
-                        highestTemp: data.main.temp_max,
-                        windSpeed: data.wind.speed
+                        temperature: d.main.temp,
+                        pressure: d.main.pressure,
+                        humidity: d.main.humidity,
+                        lowestTemp: d.main.temp_min,
+                        highestTemp: d.main.temp_max,
+                        windSpeed: d.wind.speed
                     }
                 },
                 function(error){
