@@ -5,8 +5,8 @@
 		.module('app')
 		.factory('weatherFactory', weatherFactory)
 
-	weatherFactory.$inject = ['$http', '$q', '$log'];
-	function weatherFactory($http, $q, $log){
+	weatherFactory.$inject = ['$http', '$q', '$log', '$cacheFactory'];
+	function weatherFactory($http, $q, $log, $cacheFactory){
 
 		var service = {
 			getWeather: getWeather
@@ -24,7 +24,8 @@
 			var defer = $q.defer();
 			$http({
 				method: "GET",
-				url: apiUrl
+				url: apiUrl,
+				cache: true
 			}).then(function(response){
 				if (typeof response.data === 'object'){
 					defer.resolve(response);

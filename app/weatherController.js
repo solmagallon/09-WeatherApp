@@ -11,6 +11,10 @@
     function weatherController(cachedFactory, cityFactory, weatherFactory, $log, $scope, cityFilter) {
         var vm = this; // https://github.com/johnpapa/angular-styleguide/tree/master/a1/#controllers
 
+        function kelvinToF(k){
+            return (1.8 * (k-273) + 32).toFixed(1);
+        }
+
         // vm.cities = {name: "placeholder", country: "placeholder"};
 
         vm.citySelection = [];
@@ -68,11 +72,11 @@
                         city: response.data.city.name,
                         lat: response.data.city.coord.lat,
                         lng: response.data.city.coord.lon,
-                        temperature: d.main.temp,
+                        temperature: kelvinToF(d.main.temp),
                         pressure: d.main.pressure,
                         humidity: d.main.humidity,
-                        lowestTemp: d.main.temp_min,
-                        highestTemp: d.main.temp_max,
+                        lowestTemp: kelvinToF(d.main.temp_min),
+                        highestTemp: kelvinToF(d.main.temp_max),
                         windSpeed: d.wind.speed
                     }
                 },

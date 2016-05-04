@@ -10,6 +10,10 @@
             getCache: getCache
         }
 
+        function kelvinToF(k){
+            return (1.8 * (k-273) + 32).toFixed(1)
+        }
+
         return service;
 
         function getCache(cityId){
@@ -23,15 +27,16 @@
 			var cachedResponse = httpCache.get(apiUrl);
 			if (cachedResponse){
 				var data = JSON.parse(cachedResponse[1]);
+                console.log(kelvinToF(data.list[0].main.temp))
                 return weather = {
                     city: data.city.name,
                     lat: data.city.coord.lat,
                     lng: data.city.coord.lon,
-                    temperature: data.list[0].main.temp,
+                    temperature: kelvinToF(data.list[0].main.temp),
                     pressure: data.list[0].main.pressure,
                     humidity: data.list[0].main.humidity,
-                    lowestTemp: data.list[0].main.temp_min,
-                    highestTemp: data.list[0].main.temp_max,
+                    lowestTemp: kelvinToF(data.list[0].main.temp_min),
+                    highestTemp: kelvinToF(data.list[0].main.temp_max),
                     windSpeed: data.list[0].wind.speed
                 }
 			}
