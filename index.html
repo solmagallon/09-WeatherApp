@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,29 +7,13 @@
 
 		<title>09-WeatherApp</title>
 
-		<body ng-controller="WeatherController as vm">
-	</head>
-  
-  	<body style='margin-top:50px;margin-left:50px;margin-right:50px;'>
-
-
-
-
-	    <script src="bower_components/jquery/dist/jquery.js"></script>
-	    <script src="bower_components/angular/angular.js"></script>
-	    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-	    <script src="bower_components/toastr/toastr.js"></script>
-	    <script src="/app/app.js"></script>
-	    <script src="/app/weather.controller.js"></script>
-	    <script src="/app/weather.service.js"></script>
-
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	    <link href="app/styles/style.css" rel="stylesheet">
 
-
-
-
+	</head>
+  
+  	<body style='margin-top:50px;margin-left:50px;margin-right:50px;' ng-controller="weatherController as vm">  
 
 		<div class="container">
 			<div class="jumbotron" style="background-image: url(img/boat.jpg); background-size: 100%;">
@@ -45,9 +29,6 @@
 
 		<div>	
 
-
-		
-
 <div class="container">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -57,36 +38,8 @@
 <!-- default city button -->						
 						<div class="btn-group btn-group-sm">
         					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{San Diego}}
-       						</button>
-<!-- default city button -->						      						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{New York}}
-       						</button>
-<!-- default city button -->
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Washington D.C.}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{London}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Tokyo}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Rio de Janeiro}}
-       						 </button>
-<!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Mexico City}}
-       						 </button>
- <!-- default city button -->       						 
-        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
-            					{{Paris}}
-       						 </button>       						        						        						 
+            					{{city.name}}
+       						</button>        						 
 						</div>
 					</div>
 				</div>
@@ -118,12 +71,14 @@
                     	</div>
 					​
 <!-- List of all the cities that match the query -->
-						<div class="row">
-					    	<div class="col-xs-5" ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
-					        	{{city.name}}
-					    	</div>
-					    	<div class="col-xs-5" ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
-					        	{{city.country}}
+						<div class="row" ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
+							<div class="btn-default">
+						    	<div>
+						        	{{city.name}}
+						    	</div>
+						    	<div>
+						        	{{city.country}}
+						    	</div>
 					    	</div>
 					    	<br>
 	            		</div>
@@ -223,10 +178,10 @@
 				<table class="table">
 					<tbody>
 						<tr ng-repeat="city in vm.pastSearches" ng-click="vm.displayWeather(city._id)" ng-class="{active: ($index % 2 == 0)}">
-                           <td>
+                        	<td>
                                {{city.name}} 
-                            </td>
-                            <td>
+                           	</td>
+                           	<td>
 							</td>
 							<td>
 								{{city.accessed.date}}
@@ -235,19 +190,7 @@
                                {{city.accessed.time}}
                            </td>
                        </tr>
-						<tr class="active">
-							<td>
-							</td>
-							<td>
-							</td>
-							<td>
-							</td>
-							<td>
-							<td>
-							</td>
-						</tr>
-			
-				
+					</tbody>				
 				</table>
 			</div>
 		</div
@@ -261,10 +204,16 @@
     </div>
 </div>
 
-
-
-
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/weatherController.js"></script>
+    <script src="/app/weatherFactory.js"></script>
+    <script src="/app/cityFilter.js"></script>
+    <script src="/app/cityFactory.js"></script>
+    <script src="/app/cacheFactory.js"></script>
 
 </body>
-
 </html>
