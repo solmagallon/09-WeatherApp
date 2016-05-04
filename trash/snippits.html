@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+​
+<head>
+    <meta charset="UTF-8">
+    <title>Factory Demo</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <!-- endbower -->
+    
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/app/styles/style.css">
+    <!-- endinject -->
+​
+</head>
+​
+<body ng-controller="weatherController as vm">
+    <!-- default city buttons -->
+    <div class="btn-group">
+        <button class="btn btn-secondary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
+            {{city.name}}
+        </button>
+    </div>
+​
+    <form>
+        <input type="text" ng-model="cityQuery">
+        <input type="text" ng-model="countryQuery">
+        <input type="button" value="Search" ng-click="vm.getMatches(cityQuery, countryQuery)">
+    </form>
+​
+    <!-- List of all the cities that match the query -->
+    <div ng-repeat="city in vm.citySelection | limitTo:10" ng-click="vm.select(city)">
+        {{city.name}}, country: {{city.country}}
+    </div>
+​
+    <!-- Output -->
+    City: {{vm.weather.city}}<br>
+    Lat/Long: {{vm.weather.lat}}, {{vm.weather.lng}}<br>
+    Temperature:{{vm.weather.temperature}}<br>
+    Low:{{vm.weather.lowestTemp}}<br>
+    High:{{vm.weather.highestTemp}}<br>
+    Pressure:{{vm.weather.pressure}}<br>
+    Wind Speed:{{vm.weather.windSpeed}}<br>
+    Humidity:{{vm.weather.humidity}}
+​
+    <!-- list of past searches     -->
+    <div ng-repeat="city in vm.pastSearches" ng-click="vm.displayWeather(city._id)">
+            {{city.name}}   
+    </div>
+​
+​
+​
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/toastr/toastr.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <script src="/app/cityFilter.js"></script>
+    <script src="/app/cityFactory.js"></script>
+    <script src="/app/weatherController.js"></script>
+    <script src="/app/weatherFactory.js"></script>
+    <!-- endinject -->
+    </body>
+​
+</html>
+
+
+
+<tr ng-repeat="city in vm.pastSearches" ng-click="vm.displayWeather(city._id)" ng-class="{active: ($index % 2 == 0)}">
+                           <td>
+                               {{city.name}} 
+                            </td>
+                            <td>
+                               {{city.accessed.time}}, {{city.accessed.date}}
+                           </td>
+                       </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
