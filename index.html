@@ -32,12 +32,12 @@
 
 
 		<div class="container">
-			<div class="jumbotron">
-				<h1 style = 50px>
+			<div class="jumbotron" style="background-image: url(img/boat.jpg); background-size: 100%;">
+				<h1 style = 90px>
 					Origin Weather Application
 				</h1>
 				<h4>
-					Always know if you'll need an umbrella!
+					Now with 20% more El Niňo!
 				</h4>
 			</div>
 		</div>	
@@ -52,7 +52,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">
 			<div class="container-fluid">
-				<div class="row">
+				<div class="row  text-center">
 					<div class="col-md-12">
 <!-- default city button -->						
 						<div class="btn-group btn-group-sm">
@@ -75,6 +75,18 @@
         					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
             					{{Tokyo}}
        						 </button>
+<!-- default city button -->       						 
+        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
+            					{{Rio de Janeiro}}
+       						 </button>
+<!-- default city button -->       						 
+        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
+            					{{Mexico City}}
+       						 </button>
+ <!-- default city button -->       						 
+        					<button class="btn btn-primary" ng-repeat="city in vm.defaultCities" ng-click="vm.displayWeather(city.id)">
+            					{{Paris}}
+       						 </button>       						        						        						 
 						</div>
 					</div>
 				</div>
@@ -132,12 +144,12 @@
 				<h1 style="text-align:center;">
  <!-- Output icon -->
  					<img src={{vm.weather.icon}}/>
-					City: {{vm.weather.city}}<br>
+					{{vm.weather.city}}<br>
 				</h1>
 				</div>
 			<div> 
 			<br>
-				<h5 style="color:darkblue;">
+				<h5>
 <!-- Output -->				
 				Lat/Long: {{vm.weather.lat}}, {{vm.weather.lng}}
 				</h5>
@@ -148,19 +160,26 @@
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->	
-						Temperature:{{vm.weather.temperature}}(F)
+						Temperature
+						<h3 style="color:darkgreen">{{vm.weather.temperature}} F
+						</h3>
 					</h4>
 				</div>
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->	
-						Pressure:{{vm.weather.pressure}}<br>
+						Pressure
+						<h3 style="color:darkgreen">{{vm.weather.pressure}} bar
+						</h3>
+						<br>
 					</h4>
 				</div>
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->
-						Humidity:{{vm.weather.humidity}}
+						Humidity
+						<h3 style="color:darkgreen">{{vm.weather.humidity}} %
+						<h3>
 					</h4>
 				</div>
 			</div>
@@ -169,19 +188,25 @@
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->
-						Low:{{vm.weather.lowestTemp}} (F)
+						Low
+						<h3 style="color:darkgreen">{{vm.weather.lowestTemp}} F
+						<h3 style="color:darkgreen">
 					</h4>
 				</div>
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->
-						High:{{vm.weather.highestTemp}} (F)
+						High
+						<h3 style="color:darkgreen">{{vm.weather.highestTemp}} F
+						<h3>
 					</h4>
 				</div>
 				<div class="col-md-4">
 					<h4>
 <!-- Output -->
-						Wind Speed:{{vm.weather.windSpeed}} mph
+						Wind Speed
+						<h3 style="color:darkgreen">{{vm.weather.windSpeed}} mph
+						</h3>
 					</h4>
 				</div>
 	   		</div>
